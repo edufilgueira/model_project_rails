@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  pool: 5
+  timeout: 5000
+  host: localhost
+  username: postgres
+  password: password1234%
+  #schema_search_path: public
+  port: 5450
+development:
+  <<: *default
+  database: db_model_project_rails_dev
+test:
+  <<: *default
+  database: db_model_project_rails_test
+production:
+  <<: *default
+  database: db_model_project_rails_prod
+  username: concerne
+  password: <%= ENV['CONCERNE_DATABASE_PASSWORD'] %>

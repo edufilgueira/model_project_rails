@@ -1,0 +1,14 @@
+= form_for @breed, data: {turbo: true} do |f|
+  - if @breed.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@breed.errors.count, "error")} prohibited this breed from being saved:"
+      %ul
+        - @breed.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :name
+    = f.text_field :name, class: "form-control"
+  %br
+  .actions
+    = f.submit 'Salvar', class: "btn btn-success"

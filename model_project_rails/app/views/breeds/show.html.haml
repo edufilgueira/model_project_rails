@@ -1,0 +1,11 @@
+- content_for :title, "Show breed"
+
+%p#notice= notice
+
+%p
+  %b Name:
+  = @breed.name
+
+= link_to 'Editar', edit_breed_path(@breed), class: "btn btn-success"
+
+= link_to 'Voltar', breeds_path, class: "btn btn-primary"

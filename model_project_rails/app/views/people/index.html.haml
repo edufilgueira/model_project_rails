@@ -1,0 +1,17 @@
+- content_for :title, "Listing people"
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th{style:"width:200px"} Action
+  %tbody
+    - @people.each do |person|
+      %tr
+        %td= person.name
+        %td
+          = link_to '<i class="bi bi-hdd-fill"></i>'.html_safe, person, class: "btn btn-info"
+          = link_to '<i class="bi bi-clipboard2-check"></i>'.html_safe, edit_person_path(person), class: "btn btn-success"
+          = link_to '<i class="bi bi-trash-fill"></i>'.html_safe, person, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+%br
+= link_to 'Novo', new_person_path, class: "btn btn-primary"

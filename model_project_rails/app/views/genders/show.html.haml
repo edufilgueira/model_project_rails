@@ -1,0 +1,11 @@
+- content_for :title, "Show gender"
+
+%p#notice= notice
+
+%p
+  %b Name:
+  = @gender.name
+
+= link_to 'Editar', edit_gender_path(@gender), class: "btn btn-success"
+
+= link_to 'Voltar', genders_path, class: "btn btn-primary"

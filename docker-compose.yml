@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  db_model_project_rails:
+    build:
+      context: . 
+      dockerfile: Dockerfile_db
+    container_name: db_model_project_rails
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: password1234%
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - 5450:5432
+    networks:
+      - sigim_net
+
+networks: 
+  sigim_net:
+    driver: bridge

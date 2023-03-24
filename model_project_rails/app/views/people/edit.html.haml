@@ -1,0 +1,7 @@
+- content_for :title, "Editing person"
+
+= render 'form'
+
+= link_to 'Editar', @person, class: "btn btn-info"
+\|
+= link_to 'Voltar', people_path, class: "btn btn-primary"

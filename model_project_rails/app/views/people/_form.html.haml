@@ -1,0 +1,36 @@
+= form_for @person, data: {turbo: true} do |f|
+  - if @person.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@person.errors.count, "error")} prohibited this person from being saved:"
+      %ul
+        - @person.errors.full_messages.each do |message|
+          %li= message
+
+  .row
+    .col-12
+      = f.label :name
+      = f.text_field :name, class: "form-control"
+  .row
+    .col-6
+      = f.label :social_name
+      = f.text_field :social_name, class: "form-control"
+    .col-6
+      = f.label :birth_date
+      = f.text_field :birth_date, class: "form-control"
+  .row
+    .col-6 
+      = f.label :cpf
+      = f.text_field :cpf, class: "form-control"
+    .col-6
+      = f.label :rg
+      = f.text_field :rg, class: "form-control"
+  .row 
+    .col-6
+      = f.label :breed_id
+      = f.collection_select :breed_id, Breed.all, :id, :name, {prompt: 'Selecione'}, class: "form-control select2"
+    .col-6
+      = f.label :gender_id
+      = f.collection_select :gender_id, Gender.all, :id, :name, {prompt: 'Selecione'}, class: "form-control select2"
+  %br
+  .actions
+    = f.submit 'Salvar', class: "btn btn-success"

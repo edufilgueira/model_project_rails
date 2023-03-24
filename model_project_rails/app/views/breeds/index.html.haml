@@ -1,0 +1,17 @@
+- content_for :title, "Listing breeds"
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th{style:"width:200px"} Action
+  %tbody
+    - @breeds.each do |breed|
+      %tr
+        %td= breed.name
+        %td
+          = link_to '<i class="bi bi-hdd-fill"></i>'.html_safe, breed, class: "btn btn-info"
+          = link_to '<i class="bi bi-clipboard2-check"></i>'.html_safe, edit_breed_path(breed), class: "btn btn-success"
+          = link_to '<i class="bi bi-trash-fill"></i>'.html_safe, breed, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"
+%br
+= link_to 'Novo', new_breed_path, class: "btn btn-primary"

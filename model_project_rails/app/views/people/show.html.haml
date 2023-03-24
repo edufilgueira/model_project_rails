@@ -1,0 +1,11 @@
+- content_for :title, "Show person"
+
+%p#notice= notice
+
+%p
+  %b Name:
+  = @person.name
+
+= link_to 'Editar', edit_person_path(@person), class: "btn btn-success"
+
+= link_to 'Voltar', people_path, class: "btn btn-primary"

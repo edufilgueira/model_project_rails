@@ -1,0 +1,16 @@
+.vh-100.d-flex.justify-content-center.align-items-center{style:"background-color: #722cfa;"}
+  .col-md-4.p-5.shadow-sm.border.rounded-3{style:"background-color: #fff;"}
+    %h2.text-center.mb-4.text-primary
+      Login
+    = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+      .mb-3
+        = f.label :email
+        = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control border border-primary"
+      .mb-3
+        = f.label :password
+        = f.password_field :password, autocomplete: "current-password", class:"form-control border border-primary"
+      .d-grid
+        = f.submit "Log in", class:"btn btn-primary"
+    .mt-3
+      %p.small.mb-0.text-center
+        = render "devise/shared/links"
